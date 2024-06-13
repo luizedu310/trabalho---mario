@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapas</title>
+    <link href="https://getbootstrap.com//docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
+EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Lista de Chapas</h2>
+        <% if (chapas.length> 0) { %>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">ID de eleição</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% chapas.forEach(chapa=> { %>
+                            <tr>
+                                <td>
+                                    <%= chapa.id %>
+                                </td>
+                                <td>
+                                    <%= chapa.nome %>
+                                </td>
+                                <td>
+                                    <%= chapa.eleicao_id %>
+                                </td>
+                                <td>
+                                    <!-- Link para página de alteração -->
+                                    <a href="/chapas/<%= chapa.id %>/edit" class="btn
+btn-primary">Editar</a>
+                                    <!-- Formulário para deleção -->
+                                    <a href="/chapas/<%= chapa.id %>/confirm-delete"
+                                        class="btn btn-danger">Excluir</a>
+
+                                    <!-- <form action="/chapas/<%= chapa.id %>/delete" method="POST">
+<button type="submit">Excluir</button>
+</form> -->
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <% } else { %>
+                <p>Nenhuma chapa encontrado.</p>
+                <% } %>
+    </div>
+    <a href="/welcome">Voltar</a>
+    <!-- Adicione o link para o JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-
+alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-
+urZbA+l6S4GHevO9TmBndXeLl7/J8SRvJq6etK0VNXQdW0Vjrm++8eZFCsVZ7k4V" crossorigin="anonymous"></script>
+</body>
+
+</html>
