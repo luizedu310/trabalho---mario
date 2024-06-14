@@ -12,16 +12,16 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
 
 <body>
     <h2>Login</h2>
-    <form action="/login" method="POST">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <form action="/loginEleitores" method="POST">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required><br><br>
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required><br><br>
         <button type="submit" class="btn btn-success">Entrar</button>
         
     </form>
 
-    <a href="/loginEleitores"><button>Sou eleitor</button></a>
+    <a href="eleitores/cadastrar"><button>Criar conta</button></a>
 </body>
 
 </html>

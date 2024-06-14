@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votacoes</title>
+</head>
+
+<body>
+    <h2>Agora, cadastre as Votacoes</h2>
+    <form action="/votacoes/cadastrar" method="POST">
+        <label for="eleicao_id">ID da eleição:</label>
+        <input type="text" id="eleicao_id" name="eleicao_id" required><br>
+        <label for="data_inicio">Data de início:</label>
+        <input type="date" id="data_inicio" name="data_inicio" required><br>
+        <label for="data_fim">Data de fim:</label>
+        <input type="date" id="data_fim" name="data_fim" required><br>
+
+        <button type="submit">Adicionar</button>
+    </form>
+    <br><br>
+    <a href="/welcome">Cancelar</a>
+</body>
+
+
+</html>

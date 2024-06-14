@@ -2,7 +2,7 @@ const pool = require('../db');
 
 async function getAllEleicoes() {
     try {
-        const [eleicoes] = await pool.query('SELECT * FROM eleicao order by id desc');
+        const [eleicoes] = await pool.query('SELECT * FROM eleicoes order by id desc');
         return eleicoes;
     } catch (error) {
         throw error;
@@ -11,7 +11,7 @@ async function getAllEleicoes() {
 
 async function getEleicaoByNome(nome) {
     try {
-        const [eleicoes] = await pool.query('SELECT * FROM eleicao WHERE nome LIKE ? order by id desc', [`%${nome}%`]);
+        const [eleicoes] = await pool.query('SELECT * FROM eleicoes WHERE nome LIKE ? order by id desc', [`%${nome}%`]);
         return eleicoes;
     } catch (error) {
         throw error;
@@ -20,18 +20,18 @@ async function getEleicaoByNome(nome) {
 
 async function getEleicoesByNomedelete(nome) {
     try {
-        const [eleicao] = await pool.query('SELECT * FROM eleicao WHERE nome = ? order by id desc', [nome]);
+        const [eleicao] = await pool.query('SELECT * FROM eleicoes WHERE nome = ? order by id desc', [nome]);
         return eleicao[0];
     } catch (error) {
         throw error;
     }
 }
 
-async function insertEleicao(data_eleicao, local_eleicao, descricao_eleicao, nome) {
+async function insertEleicao(data, local, nome) {
     try {
         
-        await pool.query('INSERT INTO eleicao (data_eleicao, local_eleicao, descricao_eleicao, nome) VALUES (?, ?, ?, ?)', [data_eleicao, local_eleicao, descricao_eleicao, nome]);
-        const [eleicoes] = await pool.query('SELECT * FROM eleicao WHERE nome LIKE ?', [`%${nome}%`]);
+        await pool.query('INSERT INTO eleicoes (data, local, nome) VALUES (?, ?, ?)', [data, local, nome]);
+        const [eleicoes] = await pool.query('SELECT * FROM eleicoes WHERE nome LIKE ?', [`%${nome}%`]);
         return eleicoes;
     } catch (error) {
         throw error;    
@@ -40,7 +40,7 @@ async function insertEleicao(data_eleicao, local_eleicao, descricao_eleicao, nom
 
 async function getEleicaoById(id) {
     try {
-        const [eleicao] = await pool.query('SELECT * FROM eleicao WHERE id = ?', [id]);
+        const [eleicao] = await pool.query('SELECT * FROM eleicoes WHERE id = ?', [id]);
         return eleicao[0];
     } catch (error) {
         throw error;
@@ -49,15 +49,15 @@ async function getEleicaoById(id) {
 
 async function deleteEleicao(id) {
     try {
-        await pool.query('DELETE FROM eleicao WHERE id = ?', [id]);
+        await pool.query('DELETE FROM eleicoes WHERE id = ?', [id]);
     } catch (error) {
         throw error;
     }
 }
 
-async function updateEleicao(id, data_eleicao, local_eleicao, descricao_eleicao, nome) {
+async function updateEleicao(id, data, local, nome) {
     try {
-        await pool.query('UPDATE eleicao SET data_eleicao = ?, local_eleicao = ?, descricao_eleicao = ?, nome = ? WHERE id = ?', [data_eleicao, local_eleicao, descricao_eleicao, nome, id]);
+        await pool.query('UPDATE eleicoes SET data = ?, local = ?, nome = ? WHERE id = ?', [data, local, nome, id]);
     } catch (error) {
         throw error;
     }

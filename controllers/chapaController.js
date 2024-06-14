@@ -29,7 +29,7 @@ async function addChapa(req, res) {
     const { chapa, eleicao_id } = req.body;
     try {
         const id = await chapaModel.insertChapa(chapa, eleicao_id);
-        res.redirect('/chapas')
+        res.redirect('/perguntas/prosseguirChapa');
     } catch (error) {
         console.error('Erro ao inserir chapa:', error);
         res.render('error', { message: 'Erro ao inserir chapa', returnLink: '/welcome' });

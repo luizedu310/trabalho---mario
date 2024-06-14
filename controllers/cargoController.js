@@ -29,7 +29,7 @@ async function addCargo(req, res) {
     const { cargo, eleicao_id } = req.body;
     try {
         const id = await cargoModel.insertCargo(cargo, eleicao_id);
-        res.redirect('/cargos')
+        res.redirect('/perguntas/prosseguirCargo');
     } catch (error) {
         console.error('Erro ao inserir cargo:', error);
         res.render('error', { message: 'Erro ao inserir cargo', returnLink: '/welcome' });

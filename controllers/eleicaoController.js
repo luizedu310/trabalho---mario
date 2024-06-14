@@ -26,11 +26,11 @@ async function filterEleicao(req, res) {
 }
 
 async function addEleicao(req, res) {
-    const { data_eleicao, local_eleicao, descricao_eleicao, nome } = req.body;
+    const { data, local, nome } = req.body;
     try {
         
-        const id = await eleicaoModel.insertEleicao(str(data_eleicao), local_eleicao, descricao_eleicao, nome);
-        res.redirect('/eleicoes')
+        const id = await eleicaoModel.insertEleicao(data, local, nome);
+        res.redirect('/cargos/cadastrar')
     } catch (error) {
         console.error('Erro ao inserir eleicao:', error);
         res.render('error', { message: 'Erro ao inserir eleicao', returnLink: '/welcome' });

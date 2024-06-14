@@ -29,7 +29,7 @@ async function addCandidato(req, res) {
     const { nome, cpf, endereco, email, senha_votacao } = req.body;
     try {
         const id = await candidatoModel.insertCandidato(nome, cpf, endereco, email, senha_votacao);
-        res.redirect('/candidatos')
+        res.redirect('/perguntas/prosseguirCandidato');
     } catch (error) {
         console.error('Erro ao inserir candidato:', error);
         res.render('error', { message: 'Erro ao inserir candidato', returnLink: '/welcome' });

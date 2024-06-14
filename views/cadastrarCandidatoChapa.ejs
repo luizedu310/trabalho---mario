@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos em chapas</title>
+</head>
+
+<body>
+    <h2>Agora, vincule os candidatos as chapas e cargos!</h2>
+    <form action="/candidatosChapa/cadastrar" method="POST">
+        <label for="chapa_id">ID da chapa:</label>
+        <input type="text" id="chapa_id" name="chapa_id" required><br>
+        <label for="cargo_id">ID do cargo:</label>
+        <input type="text" id="cargo_id" name="cargo_id" required><br>
+        <label for="candidato_id">ID do candidato:</label>
+        <input type="text" id="candidato_id" name="candidato_id" required><br>
+
+        <button type="submit">Adicionar</button>
+    </form>
+    <br><br>
+    <a href="/welcome">Cancelar</a>
+</body>
+
+</html>

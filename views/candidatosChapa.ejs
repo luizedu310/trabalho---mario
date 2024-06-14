@@ -4,53 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidatos</title>
+    <title>Chapas</title>
     <link href="https://getbootstrap.com//docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
 EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container mt-5">
-        <h2 class="mb-4">Lista de Candidatos</h2>
-        <% if (candidatos.length> 0) { %>
+        <h2 class="mb-4">Lista de Candidatos em Chapas</h2>
+        <% if (candidatosChapa.length> 0) { %>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Cpf</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">ID da Chapa</th>
+                            <th scope="col">ID do Cargo</th>
+                            <th scope="col">ID do Candidato</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <% candidatos.forEach(candidato=> { %>
+                        <% candidatosChapa.forEach(candidatoChapa=> { %>
                             <tr>
                                 <td>
-                                    <%= candidato.id %>
+                                    <%= candidatoChapa.id %>
                                 </td>
                                 <td>
-                                    <%= candidato.nome %>
+                                    <%= candidatoChapa.chapa_id %>
                                 </td>
                                 <td>
-                                    <%= candidato.cpf %>
+                                    <%= candidatoChapa.cargo_id %>
                                 </td>
                                 <td>
-                                    <%= candidato.endereco %>
-                                </td>
-                                <td>
-                                    <%= candidato.email %>
+                                    <%= candidatoChapa.candidato_id %>
                                 </td>
                                 <td>
                                     <!-- Link para página de alteração -->
-                                    <a href="/candidatos/<%= candidato.id %>/edit" class="btn
+                                    <a href="/chapas/<%= chapa.id %>/edit" class="btn
 btn-primary">Editar</a>
                                     <!-- Formulário para deleção -->
-                                    <a href="/candidatos/<%= candidato.id %>/confirm-delete"
+                                    <a href="/chapas/<%= chapa.id %>/confirm-delete"
                                         class="btn btn-danger">Excluir</a>
 
-                                    <!-- <form action="/candidatos/<%= candidato.Id %>/delete" method="POST">
+                                    <!-- <form action="/candidatosChapa/<%= candidatosChapa.id %>/delete" method="POST">
 <button type="submit">Excluir</button>
 </form> -->
                                 </td>
@@ -60,7 +57,7 @@ btn-primary">Editar</a>
                 </table>
             </div>
             <% } else { %>
-                <p>Nenhum candidato encontrado.</p>
+                <p>Nenhuma chapa encontrado.</p>
                 <% } %>
     </div>
     <a href="/welcome">Voltar</a>

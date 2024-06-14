@@ -4,53 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidatos</title>
+    <title>Eleitores</title>
     <link href="https://getbootstrap.com//docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
 EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container mt-5">
-        <h2 class="mb-4">Lista de Candidatos</h2>
-        <% if (candidatos.length> 0) { %>
+        <h2 class="mb-4">Lista de Eleitores</h2>
+        <% if (eleitores.length> 0) { %>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">Cpf</th>
+                            <th scope="col">CPF</th>
                             <th scope="col">Endereço</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Liberado</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <% candidatos.forEach(candidato=> { %>
+                        <% eleitores.forEach(eleitor=> { %>
                             <tr>
                                 <td>
-                                    <%= candidato.id %>
+                                    <%= eleitor.id %>
                                 </td>
                                 <td>
-                                    <%= candidato.nome %>
+                                    <%= eleitor.nome %>
                                 </td>
                                 <td>
-                                    <%= candidato.cpf %>
+                                    <%= eleitor.cpf %>
                                 </td>
                                 <td>
-                                    <%= candidato.endereco %>
+                                    <%= eleitor.endereco %>
                                 </td>
                                 <td>
-                                    <%= candidato.email %>
+                                    <%= eleitor.liberado %>
                                 </td>
                                 <td>
                                     <!-- Link para página de alteração -->
-                                    <a href="/candidatos/<%= candidato.id %>/edit" class="btn
+                                    <a href="/eleitores/<%= eleitor.id %>/edit" class="btn
 btn-primary">Editar</a>
                                     <!-- Formulário para deleção -->
-                                    <a href="/candidatos/<%= candidato.id %>/confirm-delete"
+                                    <a href="/eleitores/<%= eleitor.id %>/confirm-delete"
                                         class="btn btn-danger">Excluir</a>
 
-                                    <!-- <form action="/candidatos/<%= candidato.Id %>/delete" method="POST">
+                                    <!-- <form action="/eleitores/<%= eleitor.id %>/delete" method="POST">
 <button type="submit">Excluir</button>
 </form> -->
                                 </td>
@@ -60,7 +61,7 @@ btn-primary">Editar</a>
                 </table>
             </div>
             <% } else { %>
-                <p>Nenhum candidato encontrado.</p>
+                <p>Nenhum cargo encontrado.</p>
                 <% } %>
     </div>
     <a href="/welcome">Voltar</a>
